@@ -31,7 +31,7 @@ const nav = [
 
 const Navbar = () => {
   const [showBurger, setShowBurger] = useState<boolean>(false)
-
+  const [initMenu, setInitMenu] = useState<string>('Beranda')
   return (
     <div className='sticky top-0 z-10'>
       <div className='bg-navbar flex items-center justify-between px-5 py-2.5 md:px-20 md:py-5 w-full'>
@@ -40,12 +40,19 @@ const Navbar = () => {
           src={logo}
           alt='school-logo'
         />
-        <div className='hidden gap-x-5 items-center bg-black text-white lg:flex'>
-          {nav.map((e, i) => {
+        <div className='hidden gap-x-5 items-center bg-navbar text-white lg:flex'>
+          {nav.map((e) => {
             return (
-              <Link key={i} href={e.path}>
-                {e.name}
-              </Link>
+              <div key={e.name} className='relative'>
+                <Link href={e.path} onClick={() => setInitMenu(e.name)}>
+                  {e.name}
+                </Link>
+                <div
+                  className={`absolute bottom-0 border-b-2 ${
+                    initMenu === e.name ? 'border-white' : 'border-navbar'
+                  } w-1/2 left-1/2 -translate-x-1/2`}
+                />
+              </div>
             )
           })}
         </div>
@@ -57,7 +64,7 @@ const Navbar = () => {
         />
       </div>
       {showBurger ? (
-        <div className='flex flex-col bg-light-grey bg-opacity-30 text-secondary p-5 md:px-20 lg:hidden'>
+        <div className='flex flex-col bg-light-grey border-b-2 border-navbar  text-secondary p-5 md:px-20 lg:hidden max-h-screen'>
           {nav.map((e, i) => {
             return (
               <div key={i}>
