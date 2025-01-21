@@ -22,7 +22,7 @@ module.exports = {
       },
       colors: {
         white: '#FFFFFF',
-        theme: '#0193DC',
+        theme: '#015E8E',
         secondary: '#0C101A',
         tertiary: '#3A4E50',
         navbar: '#101524',

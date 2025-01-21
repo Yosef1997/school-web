@@ -1,10 +1,11 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import logo from '@/public/logo.webp'
 import Link from 'next/link'
 import { Menu } from 'lucide-react'
 import { ChevronRight } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 const nav = [
   {
@@ -30,8 +31,17 @@ const nav = [
 ]
 
 const Navbar = () => {
+  const pathname = usePathname()
   const [showBurger, setShowBurger] = useState<boolean>(false)
-  const [initMenu, setInitMenu] = useState<string>('Beranda')
+  const [initMenu, setInitMenu] = useState<string>('')
+
+  useEffect(() => {
+    const currentNav = nav.find((item) => item.path === pathname)
+    if (currentNav) {
+      setInitMenu(currentNav.name)
+    }
+  }, [pathname])
+
   return (
     <div className='sticky top-0 z-10'>
       <div className='bg-navbar flex items-center justify-between px-5 py-2.5 md:px-20 md:py-5 w-full'>
