@@ -32,7 +32,7 @@ const News = () => {
           <p className='text-white'>Beberapa Berita Pembelajaran School</p>
         </div>
       </div>
-      <div className='p-4'>
+      <div className='p-4 lg:px-32 lg:pt-16'>
         <div className='flex items-center justify-between mb-3'>
           <h2 className='font-bold md:text-2xl text-secondary'>Berita Baru</h2>
           <Button
@@ -55,16 +55,12 @@ const News = () => {
           </form>
         ) : null}
       </div>
-      <div className='p-4 grid md:grid-cols-3 gap-7'>
+      <div className='p-4 lg:px-32 grid md:grid-cols-3 xl:grid-cols-4 gap-7'>
         {isLoading
-          ? // Show skeletons while loading
-            [...Array(6)].map((_, index) => (
+          ? [...Array(6)].map((_, index) => (
               <NewsCardSkeleton key={`skeleton-${index}`} />
             ))
-          : // Show actual news cards
-            newsData.map((news) => (
-              <NewsCard key={news.id} image={news.image} title={news.title} />
-            ))}
+          : newsData.map((news) => <NewsCard key={news.id} {...news} />)}
       </div>
       <div className='flex justify-center mb-20'>
         <Button
