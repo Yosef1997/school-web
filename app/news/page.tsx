@@ -26,7 +26,7 @@ const News = () => {
 
   return (
     <div>
-      <div className='bg-jumbotron1 h-36 md:h-64 w-full bg-cover'>
+      <div className='bg-jumbotron1 h-36 md:h-64 w-full bg-[length:100%_192px] md:bg-[length:100%_384px] bg-no-repeat'>
         <div className='h-full w-full bg-black bg-opacity-70 flex flex-col items-center justify-center'>
           <h2 className='font-bold md:text-2xl text-white'>Berita</h2>
           <p className='text-white'>Beberapa Berita Pembelajaran School</p>
