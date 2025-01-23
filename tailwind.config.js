@@ -14,6 +14,8 @@ module.exports = {
       backgroundImage: {
         jumbotron1: 'url("/jumbotron1.webp")',
         jumbotron2: 'url("/jumbotron2.webp")',
+        vacancy: 'url("/vacancy.webp")',
+        curriculum: 'url("/curriculum.webp")',
       },
       borderRadius: {
         lg: 'var(--radius)',

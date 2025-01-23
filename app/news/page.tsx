@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import NewsCard from '@/components/NewsCard'
-import newsData from '@/utils/dummy'
+import { newsData } from '@/utils/dummy'
 import NewsCardSkeleton from './_components/NewsCardSkeleton'
 
 const News = () => {

@@ -7,6 +7,23 @@ export interface NewsItem {
   date: string
 }
 
+export interface Vacancy {
+  id: string
+  position: string
+  department: string
+  requiredQualifications: string[]
+  educationLevel: 'Bachelor' | 'Master' | 'PhD'
+  salaryRange: {
+    min: number
+    max: number
+  }
+  employmentType: 'Full-time' | 'Part-time' | 'Contract'
+  openDate: Date
+  closingDate: Date
+  location: string
+  imageUrl: string
+}
+
 export const emptyNewsData: NewsItem = {
   id: '',
   image: '',
@@ -16,7 +33,21 @@ export const emptyNewsData: NewsItem = {
   content: '',
 }
 
-const newsData: NewsItem[] = [
+export const emptyVacancyData: Vacancy = {
+  id: '',
+  position: '',
+  department: '',
+  requiredQualifications: [],
+  educationLevel: 'Bachelor',
+  salaryRange: { min: 0, max: 0 },
+  employmentType: 'Contract',
+  openDate: new Date(),
+  closingDate: new Date(),
+  location: '',
+  imageUrl: '',
+}
+
+export const newsData: NewsItem[] = [
   {
     id: '1',
     image: 'https://dummyimage.com/600x400/000/fff.png',
@@ -167,4 +198,70 @@ Seminar ini bukan sekadar pemberian informasi, tetapi momen transformasi bagi pa
   },
 ]
 
-export default newsData
+export const schoolVacancies: Vacancy[] = [
+  {
+    id: '1',
+    position: 'Mathematics Teacher',
+    department: 'Mathematics',
+    requiredQualifications: ['Teaching Certification', 'Degree in Mathematics'],
+    educationLevel: 'Bachelor',
+    salaryRange: { min: 45000, max: 65000 },
+    employmentType: 'Full-time',
+    openDate: new Date('2024-02-01'),
+    closingDate: new Date('2024-03-15'),
+    location: 'Main Campus',
+    imageUrl: 'https://dummyimage.com/600x400/000/fff.png',
+  },
+  {
+    id: '2',
+    position: 'Computer Science Lecturer',
+    department: 'Computer Science',
+    requiredQualifications: ['PhD in Computer Science', 'Research Experience'],
+    educationLevel: 'PhD',
+    salaryRange: { min: 65000, max: 85000 },
+    employmentType: 'Full-time',
+    openDate: new Date('2024-02-15'),
+    closingDate: new Date('2024-04-01'),
+    location: 'Technology Building',
+    imageUrl: 'https://dummyimage.com/600x400/000/fff.png',
+  },
+  {
+    id: '3',
+    position: 'Art History Instructor',
+    department: 'Humanities',
+    requiredQualifications: ["Master's in Art History", 'Teaching Experience'],
+    educationLevel: 'Master',
+    salaryRange: { min: 40000, max: 55000 },
+    employmentType: 'Part-time',
+    openDate: new Date('2024-03-01'),
+    closingDate: new Date('2024-04-15'),
+    location: 'Arts Center',
+    imageUrl: 'https://dummyimage.com/600x400/000/fff.png',
+  },
+  {
+    id: '4',
+    position: 'Biology Research Assistant',
+    department: 'Science',
+    requiredQualifications: ['Bachelor in Biology', 'Lab Research Skills'],
+    educationLevel: 'Bachelor',
+    salaryRange: { min: 35000, max: 45000 },
+    employmentType: 'Contract',
+    openDate: new Date('2024-02-20'),
+    closingDate: new Date('2024-03-30'),
+    location: 'Science Laboratory',
+    imageUrl: 'https://dummyimage.com/600x400/000/fff.png',
+  },
+  {
+    id: '5',
+    position: 'English Language Coordinator',
+    department: 'Languages',
+    requiredQualifications: ["Master's in TESOL", 'ESL Teaching Certification'],
+    educationLevel: 'Master',
+    salaryRange: { min: 50000, max: 70000 },
+    employmentType: 'Full-time',
+    openDate: new Date('2024-03-10'),
+    closingDate: new Date('2024-04-25'),
+    location: 'Language Studies Building',
+    imageUrl: 'https://dummyimage.com/600x400/000/fff.png',
+  },
+]
