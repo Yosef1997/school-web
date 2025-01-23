@@ -81,6 +81,7 @@ const Navbar = () => {
                 <Link
                   className='flex items-center justify-between py-1.5'
                   href={e.path}
+                  onClick={() => setShowBurger(false)}
                 >
                   {e.name}
                   <span>
