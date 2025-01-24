@@ -3,15 +3,15 @@ import { Metadata } from 'next'
 import DetailNews from '../_components/DetailNews'
 
 type Props = {
-  params: {
+  params: Promise<{
     newsId: string
-  }
+  }>
 }
 
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const { newsId } = await params
+  const newsId = (await params).newsId
   const newsItem = newsData.find((e) => e.id === newsId)
   return {
     title: newsItem ? newsItem.title : 'News Article',
@@ -19,7 +19,7 @@ export const generateMetadata = async ({
 }
 
 const NewsId = async ({ params }: Props) => {
-  const { newsId } = await params
+  const newsId = (await params).newsId
   const newsItem: NewsItem =
     newsData.find((e) => e.id === newsId) || emptyNewsData
 

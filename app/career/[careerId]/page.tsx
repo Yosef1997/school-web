@@ -3,13 +3,13 @@ import { Metadata } from 'next'
 import CareerDetail from '../_components/CareerDetail'
 
 type Props = {
-  params: {
+  params: Promise<{
     careerId: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { careerId } = await params
+  const careerId = (await params).careerId
   const careerItem = schoolVacancies.find((e) => e.id === careerId)
   return {
     title: careerItem ? careerItem.position : 'Vacancy',
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const CareerId = async ({ params }: Props) => {
-  const { careerId } = await params
+  const careerId = (await params).careerId
   const careerItem: Vacancy =
     schoolVacancies.find((e) => e.id === careerId) || emptyVacancyData
 
